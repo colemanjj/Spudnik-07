@@ -367,13 +367,13 @@ void loop() {
   //  Getting it wet will do that also.
   //   see: https://community.particle.io/t/recover-electron-from-beaver-attack/
        {
-        minutes = 60;  // 7 hours (420 min)
-         if (fuel.getSoC() >25)   minutes = 20;    // 5 hours (300 min)
-            if (fuel.getSoC() >40)   minutes = 10;     // 2 hours (120 min)
-                if (fuel.getSoC() >60)   minutes = 5;   // 1 hours (60 min)
-                    if (fuel.getSoC() >70)   minutes = 5;    // 45 minutes
-                        if (fuel.getSoC() >75)   minutes = 5;     // 30 minutes
-                            if (fuel.getSoC() >80)   minutes = 5;      // 15 minutes;
+        minutes = 420;  // 7 hours (420 min)
+         if (fuel.getSoC() >25)   minutes = 300;    // 5 hours (300 min)
+            if (fuel.getSoC() >40)   minutes = 120;     // 2 hours (120 min)
+                if (fuel.getSoC() >60)   minutes = 60;   // 1 hours (60 min)
+                    if (fuel.getSoC() >70)   minutes = 45;    // 45 minutes
+                        if (fuel.getSoC() >75)   minutes = 30;     // 30 minutes
+                            if (fuel.getSoC() >80)   minutes = 15;      // 15 minutes;
           // after sleep time is set based on battery charge, go on to read sensors and report to internet
         }
        else
