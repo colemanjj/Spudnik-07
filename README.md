@@ -107,6 +107,8 @@ Components can be attached to the inside of the waterproof box with glued-on vel
 Construction of this unit would not have been possible without the ideas, code and quidance of the following sites/people:
 
 Adafruit.com -- general guidance on construction and coding.  
+blog.arduino.cc -- the Arduino community blog for project ideas.
+forum.arduino.cc -- the Arduino community forum for coding ideas and guidance.
 DFROBOT.com -- code for sampling the Specific Conductance / TDS sensor, including extracting a median of multiple samples.  
 RyanB in the https://community.particle.io forum for code snippets and code ideas on running the Particle Electron on solar power.  
 Many others that have contributed code and ideas to the Adafruit and Particle forums.  
