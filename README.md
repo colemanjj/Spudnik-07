@@ -16,10 +16,10 @@
     A solar powered IoT project using the Particle Electron to monitor water quality and weather.  
 	The unit will monitor:
 	Water   Temperature
-			Specific conductance
+		Specific conductance
 	Air     Temperature
-			Humidity
-			Pressure
+		Humidity
+		Pressure
 	Rain	Index of intensity
 	Battery Percent charge
 	        Charge voltage
