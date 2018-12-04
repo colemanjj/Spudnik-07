@@ -51,7 +51,7 @@
      or  
      from Newegg:  https://www.newegg.com/Product/Product.aspx?Item=9SIA86V2Z30488   
      
-   - Cellular antenna: GSM/GPRS 5DB patch antenna SMA connector 900mhz-1800mhz 
+   - Cellular antenna: GSM/GPRS 5DB patch antenna SMA connector 900mhz-1800mhz  
      from Newegg: https://www.newegg.com/Product/Product.aspx?Item=9SIADG45V29158  
      or  
      from ebay: https://www.ebay.com/itm/GSM-GPRS-5DB-patch-antenna-SMA-connector-900mhz-1800mhz-3-m/232927230371  
@@ -59,24 +59,24 @@
    - Mini PCI UFL to SMA Female Connector Antenna WiFi Pigtail Cable IPX to SMA Extension Connector  
      from Amazon: https://www.amazon.com/gp/product/B07GWHHRFL  
      or  
-     from Newegg: https://www.newegg.com/Product/Product.aspx?Item=9SIAAZM4K92552
+     from Newegg: https://www.newegg.com/Product/Product.aspx?Item=9SIAAZM4K92552  
      
    - 4.7 Kohm pull-up/down resistor  
      from adafruit.com:  https://www.adafruit.com/product/2783  
      
-   - Breadboards
-     from adafruit.com:  https://www.adafruit.com/product/64  and  https://www.adafruit.com/product/1609  
+   - Breadboards  
+     from adafruit.com:  https://www.adafruit.com/product/64  
+     and  https://www.adafruit.com/product/1609  
      
-   - Small Watertight box
+   - Small Watertight box  
      from amazon: https://www.amazon.com/gp/product/B007JQJE5U   size=small  
-     or 
+     or  
      from wallmart: https://www.walmart.com/ip/Outdoor-Products-Small-Watertight-Dry-Box-Blue/26674162  
      
-   - Cable Ports / Cable Glands XJS PG7 PG9
-     from adafruit: https://www.adafruit.com/product/762
+   - Cable Ports / Cable Glands XJS PG7 PG9  
+     from adafruit: https://www.adafruit.com/product/762  
      or  
-     from amazon: https://www.amazon.com/gp/product/B07BPH1QY7/
-     
+     from amazon: https://www.amazon.com/gp/product/B07BPH1QY7/  
      
 # Construction: 
 This is a complex project (it was for me anywhay). So if you are new to this stuff, try something with fewer parts.  
@@ -106,10 +106,10 @@ Components can be attached to the inside of the waterproof box with glued-on vel
 # Credits: 
 Construction of this unit would not have been possible without the ideas, code and quidance of the following sites/people:
 
-DFROBOT.com -- code for sampling the Specific Conductance / TDS sensor, including extracting a median of multiple samples.  
 Adafruit.com -- general guidance on construction and coding.  
-RyanB in the https://community.particle.io forum for code snippets and code ideas on running the Particle Electron on solar power. 
-Many others that have contributed code and ideas to the Adafruit and Particle forums.
+DFROBOT.com -- code for sampling the Specific Conductance / TDS sensor, including extracting a median of multiple samples.  
+RyanB in the https://community.particle.io forum for code snippets and code ideas on running the Particle Electron on solar power.  
+Many others that have contributed code and ideas to the Adafruit and Particle forums.  
 
 # Licensed under: 
  GNU GENERAL PUBLIC LICENSE  Version 3, 29 June 2007  
