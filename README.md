@@ -4,7 +4,7 @@
     Powered by the nearest star, Spudnik-06 was launched in early 2018 to monitor water quality and weather in 
     extreme environments ranging from 40C to -48C, some of the colder regions of planet Akii. Soon after arrival 
     at the gas-liquid inerface of the planet, Spudnik-06 was attacked by non-humans and was rendered inoperable. 
-    A re-launch in mid-2018 of an armored Spudnik-07 enables the unit to now withstand non-human attack. 
+    A re-launch in mid-2018 of an armored Spudnik-07 enables the unit to now withstand non-human (beaver) attack. 
     
     Spudnik7 began reporting to mission central shortly after launch and has been online at 15-minute intervals 
     to report air and water temperature, humidity, and water conductivity at the gas-liquid interface of planet 
