@@ -16,6 +16,8 @@
 	Cell	Signal strength
 		
 # Hardware:
+   - Drone: Mavic Mini  https://www.dji.com/mavic-mini
+   
    - Particle Electron:  https://store.particle.io/collections/electron  
    
    - Electrical Conductivity / TDS sensor  
@@ -64,7 +66,7 @@ Permissions of this license are conditioned on making available complete source 
  
 It is the responsibility of the code user to download and read the full the  GNU GENERAL PUBLIC LICENSE  Version 3, 29 June 2007, available at: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-![screenshop of Ubidots](./SandL04-Spudnik_2018-11-27.JPG " Spudnik-07 reports to Ubidots")
+![hovering Spudnik-Drone](./Image5559412639001945074.jpg " Ikaros hovering over water")
 
 # --Code:
 ```C++
