@@ -34,10 +34,13 @@
      from Amazon.com:   HiLetgo BME280 Atmospheric Pressure Sensor Temperature Humidity Sensor Breakout for Arduino  
        
    - Cellular antenna: GSM/GPRS 5DB patch antenna SMA connector 900mhz-1800mhz . With Pigtail Cable IPX
-     ?????????????????????
+     Taoglas Cellular Antenna that came with Particle Electron 3G kit
        
    - 4.7 Kohm pull-up/down resistor  
      from adafruit.com:  https://www.adafruit.com/product/2783  
+     
+   - Lithium Ion Polymer Battery - 3.7v 100mAh
+     from adafruit.com: https://www.adafruit.com/product/1570
      
    - Solderless Breadboards  
      from adafruit.com:  https://www.adafruit.com/product/64  
@@ -46,7 +49,7 @@
 
 I recommend that you build the device on a solderless breadboard first and make sure everything is running before 
 soldering it onto a perma-proto breadboard. 
-So far this has been constructed on a solderless breadboard which was then stuck to the top f a drone with double-sided outdoor carpet tape.
+So far this unit has been constructed only on a solderless breadboard which was then stuck to the top f a drone with double-sided outdoor carpet tape.
 
 # Credits: 
 Construction of this unit would not have been possible without the ideas, code and quidance of the following sites/people:
