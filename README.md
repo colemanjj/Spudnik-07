@@ -1,38 +1,23 @@
-# Spudnik --Monitoring the Liquid-Gas Interface of Planet Akii
+# Ikaros: a Drone based Spudnik -- Monitoring the Planet from Afar
 ![photo of Spudnik-07](./Spudnik-07.jpg " Spudnik-07 deployed in riverside wetland")
-# Description (2018-12-03): 
-    Powered by the nearest star, Spudnik-06 was launched in early 2018 to monitor water quality and weather in 
-    extreme environments ranging from 40C to -48C, some of the colder regions of planet Akii. Soon after arrival 
-    at the gas-liquid inerface of the planet, Spudnik-06 was attacked by non-humans and was rendered inoperable. 
-    A re-launch in mid-2018 of an armored Spudnik-07 enables the unit to now withstand non-human (beaver) attack. 
-    
-    Spudnik7 began reporting to mission central shortly after launch and has been online at 15-minute intervals 
-    to report air and water temperature, humidity, and water conductivity at the gas-liquid interface of planet 
-    Akii. Spudnik7 will be operating near the surface of one of the planet's hydrologic features known as the 
-    Sand River to better understand the interaction between the river and discharges that appear to be linked
-    to iron rich geologic formations below the planet's surface.
+# Description (2020-02-22): 
+    Riding on the back of a small drone, Ikaros was sucessfully tested February 22, 2020.
+    Based on the popular ;) Spudnik series of water monitoring IOT projects, this Spudnik-Drone takes monitoring to the air and sea. Mounting a reduced size Spudnik on the back of a drone has enabled us to reach across the forests, wetlands and waters to test water quality at a distance.
 
 # Data rendered: 
-    A solar powered IoT project using the Particle Electron to monitor water quality and weather.  
+    A drone mounted IoT project using the Particle Electron to monitor water quality and weather.  
 	The unit will monitor:
 	Water   Temperature
 		Specific conductance
 	Air     Temperature
 		Humidity
 		Pressure
-	Rain	Index of intensity
 	Battery Percent charge
-	        Charge voltage
 	Cell	Signal strength
 		
 # Hardware:
    - Particle Electron:  https://store.particle.io/collections/electron  
    
-   - 6 Volt 2-4 Watt solar panel:  
-     from volyaics systems: https://www.voltaicsystems.com/3-5-watt-panel  
-     or  
-     from Adafruit:  https://www.adafruit.com/product/200  
-     
    - Electrical Conductivity / TDS sensor  
      Gravity: Analog TDS Sensor/Meter for Arduino https://www.dfrobot.com/product-1662.html  
      
@@ -41,68 +26,26 @@
      or  
      from Gravity: https://www.dfrobot.com/product-1354.html
      
-   - 2 Temperature, humidity, pressure sensor BME280   (1 unit for air, 1 unit for water pressure)  
+   - 1 Temperature, humidity, pressure sensor BME280   (1 unit for air)  
      from Adafruit:  https://www.adafruit.com/product/2652  
      or  
      from Amazon.com:   HiLetgo BME280 Atmospheric Pressure Sensor Temperature Humidity Sensor Breakout for Arduino  
-     
-   - Rain / Water Level Sensor
-     from Amazon:  https://www.amazon.com/gp/product/B01N058HS6/  
-     or  
-     from Newegg:  https://www.newegg.com/Product/Product.aspx?Item=9SIA86V2Z30488   
-     
-   - Cellular antenna: GSM/GPRS 5DB patch antenna SMA connector 900mhz-1800mhz  
-     from Newegg: https://www.newegg.com/Product/Product.aspx?Item=9SIADG45V29158  
-     or  
-     from ebay: https://www.ebay.com/itm/GSM-GPRS-5DB-patch-antenna-SMA-connector-900mhz-1800mhz-3-m/232927230371  
-     
-   - Mini PCI UFL to SMA Female Connector Antenna WiFi Pigtail Cable IPX to SMA Extension Connector  
-     from Amazon: https://www.amazon.com/gp/product/B07GWHHRFL  
-     or  
-     from Newegg: https://www.newegg.com/Product/Product.aspx?Item=9SIAAZM4K92552  
-     
+       
+   - Cellular antenna: GSM/GPRS 5DB patch antenna SMA connector 900mhz-1800mhz . With Pigtail Cable IPX
+     ?????????????????????
+       
    - 4.7 Kohm pull-up/down resistor  
      from adafruit.com:  https://www.adafruit.com/product/2783  
      
-   - Breadboards  
+   - Solderless Breadboards  
      from adafruit.com:  https://www.adafruit.com/product/64  
-     and  https://www.adafruit.com/product/1609  
-     
-   - Small Watertight box  
-     from amazon: https://www.amazon.com/gp/product/B007JQJE5U   size=small  
-     or  
-     from wallmart: https://www.walmart.com/ip/Outdoor-Products-Small-Watertight-Dry-Box-Blue/26674162  
-     
-   - Cable Ports / Cable Glands XJS PG7 PG9  
-     from adafruit: https://www.adafruit.com/product/762  
-     or  
-     from amazon: https://www.amazon.com/gp/product/B07BPH1QY7/  
      
 # Construction: 
-This is a complex project (it was for me anywhay). So if you are new to this stuff, try something with fewer parts.  
-If you are new to building electronic devices visit some of the on-line tutorials for soldering and IoT construction, 
-such as Adafruit's video on breadboards (https://youtu.be/w0c3t0fJhXU), soldering techniques (https://youtu.be/QKbJxytERvg), 
-and tools (https://youtu.be/J-1phA_vKDg), 
 
 I recommend that you build the device on a solderless breadboard first and make sure everything is running before 
-soldering it onto a perma-proto breadboard. Don't get ahead of yourself and solder things up before you have all the bugs 
-out and the sensors calibrated.
+soldering it onto a perma-proto breadboard. 
+So far this has been constructed on a solderless breadboard which was then stuck to the top f a drone with double-sided outdoor carpet tape.
 
-Depth sensor:  
-The Fitzing diagram shows an analog vented depth sensor. In software that is implemented on analog pin A0 and function getDepth(). However, there is no hardware suggested because I am using a surplus part that is no longer available.  
-An alternative depth sensor is implemented in code but is experimental and involves placing a 2nd BME280 in mineral oil underwater to detect water pressure.  The air pressure is subtracted from the water pressure and the result converted to inches of water.  Construction of the BME280 based Depth sensor will require a seperate post; to be completed in the near future.  
-The monitoring unit will run without any depth sensor.
-
-Install the components and wire them up using 22 gage jumper wires as shown in the Fitzing diagram below:  
-![fitzing of Spudnik-09](./Spudnik-08v01b.jpg " Diagram of Spudnik wiring ")  
-
-Wiring can initially be done on a solderless breadboard without the waterproof enclosure for ease of access.  When 
-doing the final soldering, route the sensors, solar panel, and antenna wires through cable ports installed in 
-your waterproof enclosure. Technique for cutting holes and installing cable glands in the waterproof box can be found
-here: https://youtu.be/BR-cIOuWHf0
-	
-Components can be attached to the inside of the waterproof box with glued-on velcro, glue or very strong double-sided tape.
-	
 # Credits: 
 Construction of this unit would not have been possible without the ideas, code and quidance of the following sites/people:
 
@@ -110,7 +53,6 @@ Adafruit.com -- general guidance on construction and coding.
 blog.arduino.cc -- the Arduino community blog for project ideas.
 forum.arduino.cc -- the Arduino community forum for coding ideas and guidance.
 DFROBOT.com -- code for sampling the Specific Conductance / TDS sensor, including extracting a median of multiple samples.  
-RyanB in the https://community.particle.io forum for code snippets and code ideas on running the Particle Electron on solar power.  
 Many others that have contributed code and ideas to the Adafruit and Particle forums.  
 
 # Licensed under: 
