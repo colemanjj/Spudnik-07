@@ -73,26 +73,18 @@ It is the responsibility of the code user to download and read the full the  GNU
 
 # --Code: A bit of a mess, but it works. Will clean up soon ;)
 ```C++
-/* A project to monitor water quality in remote locations
-  Uses the Particle Electron powered by a solar panel and the LiPo battery that comes with the Electron.
+/* A project to monitor water quality in remote locations.  Code modified from Spudnik-07
+  Uses the Particle Electron powered by a LiPo battery.
   parameters include:
   Water   Temperature                       --ds18b20
           Specific conductance              --Gravity: Analog TDS Sensor/Meter
-          Water Depth                       --either a recycled analog vented sensor or a BME280 in mineral oil
   Air     Temperature, Humidity, Pressure   --BME280
-  Rain	  Index of intensity                --generic Rain / Water Level Sensor
   Battery Percent charge                    --internal to Electron
-          Charge voltage                    --internal to Electron
   Cell	  Signal strength                   --internal to Electron
 
   Parameter values are sent to:
     Ubidots for storage and plotting
     Particle for tracking of unit activity
-
-  Pin IDs and code are included for an analog vented depth sensor and a BME280 based depth sensor but the
-  analog vented sensor is not implemented in Spudnik-09 and later.
-  The code will run with the depth sensors missing. If a sensor reading fails, dummy results are reported
-  to Ubidots and/or particle.
 
   In general the code is written to, hopefully, not "hang" if a sensor is missing or fails.
     This code has been run on a "bare" electron with only a battery and antenna and "FuelGauge" values
@@ -101,10 +93,6 @@ It is the responsibility of the code user to download and read the full the  GNU
   Delays and Particle.process() are implemented after upload of the data so that there is time for
   OTA software updates. In any case OTA updates seem to be sensitive to timing.  The delay for OTA upload
   requires SYSTEM_THREAD(ENABLED) otherwise the code gets stuck while checking for Cellular.connect();
-
-  Frequency of sensor reading and data reporting is dependent on the battery charge.  Frequency decreases
-  as the battery charge decreases.  If charge (SOC) is below 20% the Particle blinks the blue LED slowly then
-  goes to sleep for 9 hours, during which it is hoped that it will get some sun to recharge.
 
   If cell signal is weak and the Particle can not connect for 2 minutes it flashed blue LED, writes a message
   to serial, tries 1 more minute and then goes back to sleep.
@@ -220,94 +208,7 @@ void setup() {
   digitalWrite(B0, HIGH);	//
 	delay(100);   // delay to give time for power to turn on, don't know if this is needed
 
-  //ubidots.setDatasourceName(DATA_SOURCE_NAME); //This name will automatically show up in Ubidots the first time you post data.
-
-// Initalize the PMIC class so you can call the Power Management functions below.
-  // Particle.publish("PMIC", "setting charge in setup",60,PRIVATE);
-  //PMIC pmic;
-  /// pmic.setInputCurrentLimit(150);
-  /*******************************************************************************
-    Function Name : setInputCurrentLimit
-    Description : Sets the input current limit for the PMIC
-    Input : 100,150,500,900,1200,1500,2000,3000 (mAmp)
-    Return : 0 Error, 1 Success
-    use pmic.setInputCurrentLimit(uint16_t current);
-    // from spark_wiring_power.cpp
-     @ https://github.com/spark/firmware/blob/develop/wiring/src/spark_wiring_power.cpp
-     This will be overridden if the input voltage drops out and comes back though (with something like a solar cell)
-     and it will be set back to the default 900mA level. To counteract that you could set it in a Software Timer every 60 seconds or so.
-    *******************************************************************************/
- //pmic.setChargeCurrent(0, 0, 1, 0, 0, 0);      // Set charging current to 1024mA (512 + 512 offset)    //???????? is this good idea?
-    //pmic.setChargeCurrent(0, 0, 0, 0, 1, 0);  // Set charging current to 640mA (512 + 128)
-  /* Function Name  : setChargeCurrent  // from spark_wiring_power.cpp
-     @ https://github.com/spark/firmware/blob/develop/wiring/src/spark_wiring_power.cpp
-  * Description    : The total charge current is the 512mA + the combination of the
-                    current that the following bits represent
-                    bit7 = 2048mA
-                    bit6 = 1024mA
-                    bit5 = 512mA
-                    bit4 = 256mA
-                    bit3 = 128mA
-                    bit2 = 64mA
- * Input          : six boolean values
-                    For example,
-                    setChargeCurrent(0,0,1,1,1,0) will set the charge current to
-                    512mA + [0+0+512mA+256mA+128mA+0] = 1408mA
-    */
- // Set the lowest input voltage to 4.84 volts. This keeps the solar panel from operating below 4.84 volts.
- //pmic.setInputVoltageLimit(4840);  //  taken from code suggested by RyanB in the https://community.particle.io forum
-      // see: https://community.particle.io/t/pmic-only-sometimes-not-charging-when-battery-voltage-is-below-3-5v/30346
-  //      pmic.setInputVoltageLimit(4040); //to get some charge in low light? not sure this helps
-  ///pmic.setInputVoltageLimit(5080);
-  /*************************from: https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_power.cpp
-  * Function Name  : setInputVoltageLimit
-  * Description    : set the minimum acceptable input voltage
-  * Input          : 3880mV to 5080mV in the increments of 80mV
-                    3880
-                    3960
-                    4040
-                    4120
-                    4200
-                    4280
-                    4360
-                    4440
-                    4520
-                    4600
-                    4680
-                    4760
-                    4840
-                    4920
-                    5000
-                    5080
-  * Return         : 0 Error, 1 Success
- *******************************************************************************/
- //pmic.setChargeVoltage(4512);  // for sealed lead-acit (SLA) battery. may not be implemented in spark_wiring_power.cpp
- //pmic.setChargeVoltage(4208); // set upper limit on charge voltage. this limits the
-  // max charge that will be given to the battery.
-  // default is 4112 in Particle Electron which gives 80% charge. set to 4208 to get charge to go up to 90%
-  /*******************************************************************************
-  * Function Name  : setChargeVoltage
-  * Description    : The total charge voltage is the 3.504V + the combination of the
-                    voltage that the following bits represent
-                    bit7 = 512mV
-                    bit6 = 256mV
-                    bit5 = 128mV
-                    bit4 = 64mV
-                    bit3 = 32mV
-                    bit2 = 16mV
-  * Input          : desired voltage (4208 or 4112 are the only options currently)
-                    4208 is the default // this doesn't seem to be true for the Electron
-                    4112 is a safer termination voltage if exposing the
-                battery to temperatures above 45°C & the Particle Electron default
-  * Return         : 0 Error, 1 Success
-  e.g  case 4112:    writeRegister(CHARGE_VOLTAGE_CONTROL_REGISTER, (mask | 0b10011000));
-                                                                              76543 = 3504+512+64+32=4112
-     0b111111000 = max = 4.512 if  spark_wiring_power.cpp gets modified
-  *******************************************************************************
-   bool PMIC::setChargeVoltage(uint16_t voltage) {.......................
- *******************************************************************************/
-
- // setup two BME280s
+ // setup BME280
     if (!bme1.begin(0x77)) // the air sensor BME280 for temp, humidity, pressure
                   //  with SD0 held high by wire to 3.3 V. see HiLetGo_BME280.txt
     {
@@ -315,16 +216,6 @@ void setup() {
       Particle.publish("ObiDots", "could not find bme1",60,PRIVATE);
         //  while (1);  // original code had this but seems like an endless loop if the BME is not detected.
       }
-/*    if (!bme2.begin(0x76))  // the water depth sensor in oil made from a BME280. Temp and pressure
-    {
-        Serial.println("Could not find 2nd valid BME280 sensor, check wiring!");
-        Particle.publish("ObiDots", "could not find bme1",60,PRIVATE);
-      }
-*/
-// ds18b20 find address of the ds18b20 water temperature sensor
-///ds18sensor.read();
-///ds18sensor.addr(ds18addr);
-
  Serial.println("ending setup");
 } // end setup()
 
@@ -336,42 +227,7 @@ void loop() {
   FuelGauge fuel; // Initalize the Fuel Gauge so we can call the fuel gauge functions below.
   //  set the deep sleep timer based on the battery charge
   float SoC = fuel.getSoC();
-    /*  if (SoC <70) {
-                    //LowBattBlink();
-                    LowBattBlink();
-                    PMIC pmic;
-                    pmic.disableBATFET();
-                    // turns off the battery. Unit will still run if power is supplied to VIN,
-                        // i.e. a solar panel+light
-                    // unit will stay on programed schedule of waking if power to VIN maintained
-                    // if no power to VIN, i.e. no light, then unit stays off
-                    // if power re-applied to VIN, unit boots up, disables battery again but continues with
-                        //program, including reporting to web
-                    // pwerer to VIN, i.e. solar+light, will charge battery even if disableBATFET()
-                    // this will:
-                        //--disable battery if SOC is very low
-                        //--wake and run the unit if solar powers VIN
-                        //--run on programed schedule if solar powers VIN constantly
-                        //--charge the battery if solar powers VIN
-                        //--be skipped if power to VIN brings battery charge above 15%
-                   }
-    */
-        if (SoC <10)   //  testing seems to indicate unit stops connecting to internet when too low
-      // // with a FLCapacitor in parallel with battery, connection continues even when as low as 10%
-      // // discharging the Electron completely can render it "bricked".
-      // //   see: https://community.particle.io/t/bug-bounty-electron-not-booting-after-battery-discharges-completely/
-      // //  Getting it wet will do that also. //   see: https://community.particle.io/t/recover-electron-from-beaver-attack/
-      //      {
-      //       minutes = 600;  // 7 hours (420 min)  // values set to sorter intervals during code testing
-      //        if (SoC >30)   minutes = 300;    // 5 hours (300 min)
-      //           if (SoC >40)   minutes = 120;     // 2 hours (120 min)
-      //               if (SoC >60)   minutes = 120;   // 1 hours (60 min)
-      //                   if (SoC >70)   minutes = 45;    // 45 minutes
-      //                       if (SoC >75)   minutes = 30;     // 30 minutes
-      //                           if (SoC >80)   minutes = 15;      // 15 minutes;
-      //         // after sleep time is set based on battery charge, go on to read sensors and report to internet
-      //       }
-      //      else
+    if (SoC <10)   //  testing seems to indicate unit stops connecting to internet when too low
             { // if battery below 25%, don't even try to connect but go to sleep for 9 hours
               minutes = 432000;   // sleep 5 days if battery very low
               sprintf(publishStr, "not connecting, sleeping for %2i minutes to charge battery ", minutes);
