@@ -1,5 +1,5 @@
 # Ikaros: a Drone based Spudnik -- Monitoring the Planet from Afar
-![photo of Spudnik-07](./Spudnik-07.jpg " Spudnik-07 deployed in riverside wetland")
+![photo of Ikaros](./Image3458073204681241722.jpg " Spudnik-Drone ready for takeoff")
 # Description (2020-02-22): 
     Riding on the back of a small drone, Ikaros was sucessfully tested February 22, 2020.
     Based on the popular ;) Spudnik series of water monitoring IOT projects, this Spudnik-Drone takes monitoring to the air and sea. Mounting a reduced size Spudnik on the back of a drone has enabled us to reach across the forests, wetlands and waters to test water quality at a distance.
