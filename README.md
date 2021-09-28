@@ -1,19 +1,20 @@
 # Spudnik --Monitoring the Liquid-Gas Interface of Planet Akii
 ![photo of Spudnik-07](./Spudnik-07.jpg " Spudnik-07 deployed in riverside wetland")
-# Description (2018-12-03): 
+# Description (2018-12-03, updated:2021-09-28): 
     Powered by the nearest star, Spudnik-06 was launched in early 2018 to monitor water quality and weather in 
     extreme environments ranging from 40C to -48C, some of the colder regions of planet Akii. Soon after arrival 
     at the gas-liquid inerface of the planet, Spudnik-06 was attacked by non-humans and was rendered inoperable. 
     A re-launch in mid-2018 of an armored Spudnik-07 enables the unit to now withstand non-human (beaver) attack. 
     
-    Spudnik7 began reporting to mission central shortly after launch and has been online at 15-minute intervals 
-    to report air and water temperature, humidity, and water conductivity at the gas-liquid interface of planet 
-    Akii. Spudnik7 will be operating near the surface of one of the planet's hydrologic features known as the 
-    Sand River to better understand the interaction between the river and discharges that appear to be linked
-    to iron rich geologic formations below the planet's surface.
+    Spudnik-07 began reporting to mission central shortly after launch and has aince been online at 30-minute intervals 
+    to report air and water temperature, humidity and water conductivity at the gas-liquid interface of planet 
+    Akii. In 2019 Spudnik-07 was updated to measure weter depth using a patent-applied-for technology that utilizes
+    the water repellent features of Johnson&Johnson Baby Oil. Spudnik7 operates near the surface of one of the 
+    planet's hydrologic features known as the Sand River to better understand the interaction between the river 
+    and discharges that appear to be linked to iron rich geologic formations below the planet's surface.
     
-    After a month-long pause in February 2021 due to extreme temperatures at the surface of Akii (-43C) Spudnik 
-    came back on-line and continues to report on a redular basis. Data can be found at:
+    After a month-long pause in February 2021 due to extreme temperatures at the surface of Akii (-43C) Spudnik-07 
+    came back on-line and as of September 2021 continues to report on a redular basis. Data can be found at:
 https://stem.ubidots.com/app/dashboards/public/dashboard/5ysIKCcTa1fe40URKVuipA5F_0isL2_Aw_MD-9TvazY?from=1632196800000&to=1632887999999&nonavbar=true
 
 # Data rendered: 
