@@ -17,6 +17,7 @@
 	The unit will monitor:
 	Water   Temperature
 		Specific conductance
+		Depth
 	Air     Temperature
 		Humidity
 		Pressure
@@ -41,10 +42,12 @@
      or  
      from Gravity: https://www.dfrobot.com/product-1354.html
      
-   - 2 Temperature, humidity, pressure sensor BME280   (1 unit for air, 1 unit for water pressure)  
+   - 2 Temperature, humidity, pressure sensor BME280   (1 unit for air, 1 unit for water pressure&depth)  
      from Adafruit:  https://www.adafruit.com/product/2652  
      or  
      from Amazon.com:   HiLetgo BME280 Atmospheric Pressure Sensor Temperature Humidity Sensor Breakout for Arduino  
+     for water pressure the BME280 is placed in an oil-filled section of PVC with ends covered by flexable membrane.
+     water depth is calculated by subtracting the air pressure from the pressure recorded under water.
      
    - Rain / Water Level Sensor
      from Amazon:  https://www.amazon.com/gp/product/B01N058HS6/  
